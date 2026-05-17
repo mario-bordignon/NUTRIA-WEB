@@ -1,0 +1,184 @@
+/* Importação da Tipografia e Tokens */
+@font-face {
+    font-family: 'Nourd';
+    /* Substitua o caminho abaixo pelo local exato onde você salvou o arquivo no seu projeto */
+    src: url('fonts/nourd_regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; /* Otimiza a renderização inicial do site */
+}
+
+:root {
+    --font-primary: 'Nourd', sans-serif;
+    --color-brand-start: #FE6B05;
+    --color-brand-end: #FE4A01;
+    --gradient-primary: linear-gradient(135deg, var(--color-brand-start), var(--color-brand-end));
+    --color-text: #1A1A1A;
+    --color-text-muted: #595959; 
+    --color-bg: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0 15%; 
+    padding-top: 80px; 
+}
+
+/* Estrutura da Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 15%; 
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; 
+    width: auto;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    transform: translateY(-2px); 
+}
+
+.logo img:hover {
+    opacity: 0.8;
+}
+
+/* Links Centralizados */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Botão Baixe Agora da Navbar */
+.btn-download {
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.btn-download:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ----------------------------------- */
+/* Seção Hero                          */
+/* ----------------------------------- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px; 
+    gap: 20px; 
+}
+
+.hero-title {
+    font-size: 4.4rem; /* Reduzido de 4.8rem para melhor proporção */
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem; /* Reduzido de 1.6rem */
+    color: var(--color-text-muted);
+    font-weight: 400; 
+    line-height: 1.5;
+}
+
+/* ----------------------------------- */
+/* Ações da Seção Hero                 */
+/* ----------------------------------- */
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    /* margin-top removido para equilibrar o espaçamento superior e inferior */
+}
+
+.hero-btn {
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.15); 
+    transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.hero-terms {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.hero-terms a {
+    color: var(--color-brand-start); 
+    font-weight: 600;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.hero-terms a:hover {
+    opacity: 0.8;
+}
