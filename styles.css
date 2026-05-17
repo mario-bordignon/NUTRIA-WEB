@@ -1,7 +1,6 @@
-/* Importação da Tipografia e Tokens */
+/* #region CORPO E TIPOGRAFIA */
 @font-face {
     font-family: 'Nourd';
-    /* Substitua o caminho abaixo pelo local exato onde você salvou o arquivo no seu projeto */
     src: url('fonts/nourd_regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
@@ -31,8 +30,10 @@ body {
     margin: 0 15%; 
     padding-top: 80px; 
 }
+/* #endregion */
 
-/* Estrutura da Navbar */
+/* #region NAVBAR */
+/* #region CONTEINER NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -50,8 +51,9 @@ body {
     height: 80px;
     padding: 0 15%; 
 }
+/* #endregion */
 
-/* Logo */
+/* #region LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -68,8 +70,9 @@ body {
 .logo img:hover {
     opacity: 0.8;
 }
+/* #endregion */
 
-/* Links Centralizados */
+/* #region ATALHOS */
 .nav-links {
     display: flex;
     list-style: none;
@@ -90,8 +93,9 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+/* #endregion */
 
-/* Botão Baixe Agora da Navbar */
+/* #region DOWNLOAD */
 .btn-download {
     background: var(--gradient-primary);
     color: #FFFFFF;
@@ -108,9 +112,10 @@ body {
     transform: translateY(-1px);
 }
 
-/* ----------------------------------- */
-/* Seção Hero                          */
-/* ----------------------------------- */
+/* #endregion */
+/* #endregion */
+
+/* #region HERO */
 .hero {
     display: flex;
     flex-direction: column;
@@ -132,15 +137,13 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.4rem; /* Reduzido de 1.6rem */
+    font-size: 1.7rem; /* Reduzido de 1.6rem */
     color: var(--color-text-muted);
     font-weight: 400; 
     line-height: 1.5;
 }
 
-/* ----------------------------------- */
-/* Ações da Seção Hero                 */
-/* ----------------------------------- */
+/* #region AÇÕES HERO */
 .hero-actions {
     display: flex;
     flex-direction: column;
@@ -182,3 +185,5 @@ body {
 .hero-terms a:hover {
     opacity: 0.8;
 }
+/* #endregion */
+/* #endregion */
