@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!--NOME-->
-<!-- #region NAVBAR -->
-    <nav class="navbar">
+<nav class="navbar">
         <div class="nav-container">
             <div class="logo">
                 <img src="img/N-logo.svg" alt="Logo Nutria">
@@ -22,62 +20,74 @@
                 <li><a href="#sobre">Sobre</a></li>
             </ul>
 
-            <a href="#download" class="btn-download">Baixe agora</a>
+            <div class="nav-actions">
+                <button id="themeToggle" class="btn-theme" aria-label="Alternar Tema">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="downloads/teste.jpg" download="app-nutria-teste.jpg" class="btn-download">Baixe agora</a>
+            </div>
         </div>
     </nav>
-<!-- #endregion -->
+<main class="main-content">
 
-    <main class="main-content">
-
-<!-- #region TELA-1 -->
-        <section class="hero">
-            <!--TÍTULO-->
+<section class="hero">
             <h1 class="hero-title">
                 Mantenha e compartilhe<br>uma alimentação saudável
             </h1>
-            <!--SUBTÍTULO-->
             <p class="hero-subtitle">
                 Encontre uma comunidade e desenvolva<br>sua rotina com saúde e motivação
             </p>
-            <!--BOTÃO-DOWNLOAD-->
             <div class="hero-actions">
-                <a href="#download" class="hero-btn">Baixe agora (00 MB)</a>
+                <a href="downloads/teste.jpg" download="app-nutria-teste.jpg" class="hero-btn">Baixe agora (00 MB)</a>
                 <p class="hero-terms">
                     Ao baixar, você concorda com nossos <a href="termos.pdf" target="_blank">termos e condições</a>
                 </p>
             </div>
         </section>
-<!-- #endregion -->
-<!-- #region TELA-2 -->
-        <section class="features" id="sobre">
-            <div class="features-text">
-                <h2 class="features-title">
-                    O ambiente digital perfeito<br>para a sua alimentação
-                </h2>
-                
-                <ul class="features-list">
-                    <li>Poste suas receitas e dietas</li>
-                    <li>Rotinas personalizadas para seu objetivo</li>
-                    <li>Trilhe sozinho ou em grupos</li>
-                    <li>Motive-se com nosso sistema de ofensiva</li>
-                </ul>
+<section class="features" id="sobre">
+            <div class="features-wrapper">
+                <div class="features-text">
+                    <h2 class="features-title">
+                        O ambiente digital perfeito<br>para a sua alimentação
+                    </h2>
+                    
+                    <ul class="features-list">
+                        <li>Poste suas receitas e dietas</li>
+                        <li>Rotinas personalizadas para seu objetivo</li>
+                        <li>Trilhe sozinho ou em grupos</li>
+                        <li>Motive-se com nosso sistema de ofensiva</li>
+                    </ul>
 
-                <h3 class="features-subtitle">
-                    Tudo que você precisa, um só lugar.
-                </h3>
+                    <h3 class="features-subtitle">
+                        Tudo que você precisa, um só lugar.
+                    </h3>
+                </div>
+
+                <div class="features-image">
+                    <img src="img/celular.svg" alt="Aplicativo Nutria no Celular">
+                </div>
             </div>
         </section>
-<!-- #endregion -->
-<!-- #region TELA-3 -->
-        <section class="black-banner">
-                    <h2 class="banner-title">
-                        O aplicativo ideal para quem<br>busca novos começos.
-                    </h2>
-                </section>
-<!-- #endregion -->
-    </main>
+<section class="black-banner">
+            <h2 class="banner-title">
+                O aplicativo ideal para quem<br>busca novos começos.
+            </h2>
+        </section>
+</main>
 
-    <!--BOTÃO TOPO-->
     <button id="btnScrollTop" class="btn-scroll-top" aria-label="Voltar ao topo">
         <svg width="26" height="22" viewBox="0 0 24 24" fill="#D1D5DB" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 4L24 20H0L12 4Z" />

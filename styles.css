@@ -12,11 +12,20 @@
     --color-brand-start: #FE6B05;
     --color-brand-end: #FE4A01;
     --gradient-primary: linear-gradient(135deg, var(--color-brand-start), var(--color-brand-end));
+    
+    /* Variáveis de Cores (Tema Claro Padrão) */
     --color-text: #1A1A1A;
-    --color-text-muted: #595959; 
+    --color-text-muted: #757575; 
     --color-bg: #FFFFFF;
     
     --page-margin-sides: 18%; 
+}
+
+/* Substituição de Variáveis para o TEMA ESCURO */
+[data-theme="dark"] {
+    --color-text: #FFFFFF;       /* Texto principal branco puro */
+    --color-text-muted: #FFFFFF; /* Textos secundários (antes cinzas) agora brancos */
+    --color-bg: #1A1A1A;
 }
 
 * {
@@ -27,6 +36,7 @@
 
 html {
     overflow-x: hidden;
+    transition: background-color 0.3s ease; 
 }
 
 body {
@@ -36,11 +46,11 @@ body {
     margin: 0 var(--page-margin-sides); 
     padding-top: 80px; 
     padding-bottom: 200vh; 
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 /* #endregion */
 
 /* #region NAVBAR */
-/* #region CONTEINER NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
@@ -49,6 +59,11 @@ body {
     background-color: var(--color-bg);
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
     z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .navbar {
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -58,9 +73,7 @@ body {
     height: 80px;
     padding: 0 var(--page-margin-sides); 
 }
-/* #endregion */
 
-/* #region LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -74,12 +87,14 @@ body {
     transform: translateY(-2px); 
 }
 
+[data-theme="dark"] .logo img {
+    filter: brightness(0) invert(1);
+}
+
 .logo img:hover {
     opacity: 0.8;
 }
-/* #endregion */
 
-/* #region ATALHOS */
 .nav-links {
     display: flex;
     list-style: none;
@@ -100,9 +115,46 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-/* #endregion */
 
-/* #region DOWNLOAD */
+/* #region AÇÕES NAVBAR (Tema e Download) */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-theme {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.3s ease;
+}
+
+.btn-theme:hover {
+    background-color: rgba(128, 128, 128, 0.15);
+}
+
+.btn-theme svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+[data-theme="dark"] .sun-icon { display: block; }
+[data-theme="dark"] .moon-icon { display: none; }
+:root .sun-icon { display: none; }
+:root .moon-icon { display: block; }
+
 .btn-download {
     background: var(--gradient-primary);
     color: #FFFFFF;
@@ -127,29 +179,29 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 100px; 
-    gap: 20px; 
+    margin-top: 160px; 
+    gap: 24px; 
 }
 
 .hero-title {
-    font-size: 4.4rem; 
-    font-weight: bold;
+    font-size: clamp(2.8rem, 5.8vw, 6rem); 
+    font-weight: normal; /* <-- Altere aqui de 'bold' para '400' ou 'normal' */
     letter-spacing: -0.5px;
     line-height: 1.15;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    width: 100%;
 }
 
 .hero-subtitle {
-    font-size: 1.7rem; 
+    font-size: clamp(1.2rem, 2vw, 1.7rem); 
     color: var(--color-text-muted);
     font-weight: 400; 
     line-height: 1.5;
 }
 
-/* #region AÇÕES HERO */
 .hero-actions {
     display: flex;
     flex-direction: column;
@@ -164,9 +216,13 @@ body {
     padding: 1rem 2.2rem;
     border-radius: 6px;
     font-weight: bold;
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
     box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.15); 
     transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .hero-btn {
+    box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.5); 
 }
 
 .hero-btn:hover {
@@ -191,26 +247,37 @@ body {
     opacity: 0.8;
 }
 /* #endregion */
-/* #endregion */
 
 /* #region TELA-2 (FEATURES) */
 .features {
     margin-top: 150px; 
     display: flex;
+    justify-content: center;
     align-items: center;
+    padding: 0 var(--page-margin-sides);
+}
+
+.features-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px; 
+    max-width: 1100px;
+    width: 100%;
 }
 
 .features-text {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 28px; 
     text-align: left;
+    max-width: 550px; 
 }
 
 .features-title {
-    font-size: 2.4rem; 
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem); 
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1.15;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -221,12 +288,12 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 4px; 
+    gap: 8px; 
     padding-left: 20px; 
 }
 
 .features-list li {
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 1.4vw, 1.3rem);
     color: var(--color-text-muted);
     position: relative;
     font-weight: 500;
@@ -245,19 +312,32 @@ body {
 }
 
 .features-subtitle {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 1.6vw, 1.5rem);
     font-weight: bold;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-top: 10px; 
+}
+
+.features-image {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.features-image img {
+    max-width: 100%;
+    height: auto;
+    width: clamp(220px, 25vw, 280px);
+    transform: translateY(30px);
 }
 /* #endregion */
 
 /* #region TELA-3 (BANNER PRETO) */
 .black-banner {
     width: 100vw;
-    margin-left: calc(-50vw + 50%); /* Puxa perfeitamente para a borda esquerda */
+    margin-left: calc(-50vw + 50%);
     background-color: #000000;
     color: #FFFFFF;
     padding: 120px 20px;
@@ -269,7 +349,7 @@ body {
 }
 
 .banner-title {
-    font-size: 3.2rem; 
+    font-size: clamp(2rem, 4vw, 3.2rem); 
     font-weight: bold;
     line-height: 1.3;
 }
@@ -296,6 +376,10 @@ body {
     visibility: hidden;
     transform: translateY(10px);
     transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .btn-scroll-top {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
 .btn-scroll-top.show {
