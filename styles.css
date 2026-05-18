@@ -4,7 +4,7 @@
     src: url('fonts/nourd_regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap; /* Otimiza a renderização inicial do site */
+    font-display: swap; 
 }
 
 :root {
@@ -15,6 +15,8 @@
     --color-text: #1A1A1A;
     --color-text-muted: #595959; 
     --color-bg: #FFFFFF;
+    
+    --page-margin-sides: 18%; 
 }
 
 * {
@@ -27,8 +29,9 @@ body {
     font-family: var(--font-primary);
     background-color: var(--color-bg);
     color: var(--color-text);
-    margin: 0 15%; 
+    margin: 0 var(--page-margin-sides); 
     padding-top: 80px; 
+    padding-bottom: 200vh; 
 }
 /* #endregion */
 
@@ -49,7 +52,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    padding: 0 15%; 
+    padding: 0 var(--page-margin-sides); 
 }
 /* #endregion */
 
@@ -111,11 +114,10 @@ body {
     opacity: 0.9;
     transform: translateY(-1px);
 }
-
 /* #endregion */
 /* #endregion */
 
-/* #region HERO */
+/* #region HERO (TELA 1) */
 .hero {
     display: flex;
     flex-direction: column;
@@ -126,7 +128,7 @@ body {
 }
 
 .hero-title {
-    font-size: 4.4rem; /* Reduzido de 4.8rem para melhor proporção */
+    font-size: 4.4rem; 
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 1.15;
@@ -137,7 +139,7 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.7rem; /* Reduzido de 1.6rem */
+    font-size: 1.7rem; 
     color: var(--color-text-muted);
     font-weight: 400; 
     line-height: 1.5;
@@ -149,7 +151,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    /* margin-top removido para equilibrar o espaçamento superior e inferior */
 }
 
 .hero-btn {
@@ -186,4 +187,124 @@ body {
     opacity: 0.8;
 }
 /* #endregion */
+/* #endregion */
+
+/* #region TELA-2 (FEATURES) */
+.features {
+    margin-top: 150px; 
+    display: flex;
+    align-items: center;
+}
+
+.features-text {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    text-align: left;
+}
+
+.features-title {
+    font-size: 2.4rem; 
+    font-weight: bold;
+    line-height: 1.2;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px; 
+    padding-left: 20px; 
+}
+
+.features-list li {
+    font-size: 1.4rem;
+    color: var(--color-text-muted);
+    position: relative;
+    font-weight: 500;
+}
+
+.features-list li::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-text-muted);
+    border-radius: 50%;
+}
+
+.features-subtitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+/* #endregion */
+
+/* #region TELA-3 (BANNER PRETO) */
+.black-banner {
+    /* Técnica para quebrar a margem do body e ocupar 100% da tela */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.banner-title {
+    font-size: 3.2rem; 
+    font-weight: bold;
+    line-height: 1.3;
+}
+/* #endregion */
+
+/* #region BOTAO SCROLL TOPO */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--color-bg);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.btn-scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btn-scroll-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
 /* #endregion */
