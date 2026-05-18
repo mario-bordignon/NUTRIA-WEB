@@ -25,6 +25,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-primary);
     background-color: var(--color-bg);
@@ -252,11 +256,8 @@ body {
 
 /* #region TELA-3 (BANNER PRETO) */
 .black-banner {
-    /* Técnica para quebrar a margem do body e ocupar 100% da tela */
     width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-left: calc(-50vw + 50%); /* Puxa perfeitamente para a borda esquerda */
     background-color: #000000;
     color: #FFFFFF;
     padding: 120px 20px;
