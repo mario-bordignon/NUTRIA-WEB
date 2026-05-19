@@ -23,8 +23,8 @@
 
 /* Substituição de Variáveis para o TEMA ESCURO */
 [data-theme="dark"] {
-    --color-text: #FFFFFF;       /* Texto principal branco puro */
-    --color-text-muted: #FFFFFF; /* Textos secundários (antes cinzas) agora brancos */
+    --color-text: #FFFFFF;
+    --color-text-muted: #FFFFFF;
     --color-bg: #1A1A1A;
 }
 
@@ -72,7 +72,7 @@ body {
     align-items: center;
     height: 80px;
     padding: 0 var(--page-margin-sides); 
-    gap: 24px; /* Garante um espaço mínimo inquebrável entre os blocos */
+    gap: 24px;
 }
 
 .logo {
@@ -151,23 +151,22 @@ body {
     stroke-linejoin: round;
 }
 
-/* Configuração Padrão (Claro) */
 .sun-icon { display: none; }
 .moon-icon { display: block; }
-
-/* Configuração Tema Escuro */
 [data-theme="dark"] .sun-icon { display: block; }
 [data-theme="dark"] .moon-icon { display: none; }
 
 .btn-download {
     background: var(--gradient-primary);
     color: #FFFFFF;
-    text-decoration: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
     padding: 0.6rem 1.5rem;
     border-radius: 6px;
     font-weight: bold;
     font-size: 0.95rem;
-    white-space: nowrap; /* Impede o empilhamento do texto no botão */
+    white-space: nowrap; 
     transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
@@ -176,7 +175,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* Responsividade da Navbar */
 @media (max-width: 1100px) {
     .nav-links {
         display: none;
@@ -224,7 +222,9 @@ body {
 .hero-btn {
     background: var(--gradient-primary);
     color: #FFFFFF;
-    text-decoration: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
     padding: 1rem 2.2rem;
     border-radius: 6px;
     font-weight: bold;
@@ -267,14 +267,12 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* O padding: 0 var(--page-margin-sides); foi REMOVIDO daqui. 
-       O body já faz esse trabalho. Isto liberta o espaço! */
 }
 
 .features-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Empurra o texto e a imagem para os lados opostos */
+    justify-content: space-between; 
     width: 100%;
     max-width: none; 
     gap: 40px; 
@@ -285,7 +283,7 @@ body {
     flex-direction: column;
     gap: 28px; 
     text-align: left;
-    max-width: 750px; /* Aumentado consideravelmente para impedir que o título quebre no PC */
+    max-width: 750px; 
     width: 100%;
 }
 
@@ -297,7 +295,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    white-space: nowrap; /* FORÇA o título a ignorar quebras automáticas indesejadas */
+    white-space: nowrap; 
 }
 
 .features-list {
@@ -313,6 +311,7 @@ body {
     color: var(--color-text-muted);
     position: relative;
     font-weight: 500;
+    white-space: nowrap; 
 }
 
 .features-list li::before {
@@ -335,6 +334,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-top: 10px; 
+    white-space: nowrap; 
 }
 
 .features-image {
@@ -346,7 +346,7 @@ body {
 .features-image img {
     max-width: 100%;
     height: auto;
-    width: clamp(280px, 35vw, 420px); /* Aumentei ligeiramente para preencher bem o lado direito */
+    width: clamp(280px, 35vw, 420px); 
     transform: translateY(30px);
 }
 /* #endregion */
@@ -388,7 +388,6 @@ body {
     align-items: center;
     cursor: pointer;
     z-index: 999;
-    
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
@@ -411,31 +410,120 @@ body {
 }
 /* #endregion */
 
+/* #region MODAL QR CODE */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--color-bg);
+    padding: 40px 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.btn-close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-close-modal:hover {
+    color: var(--color-brand-start);
+}
+
+.modal-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.modal-text {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.qr-placeholder img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid rgba(128, 128, 128, 0.1);
+}
+/* #endregion */
+
 /* Responsividade da Seção Features (Tablets e Celulares) */
 @media (max-width: 992px) {
     .features-wrapper {
-        flex-direction: column-reverse; /* Mágica acontece aqui: inverte a ordem, imagem sobe e texto desce */
+        flex-direction: column-reverse; 
         justify-content: center;
-        gap: 50px; /* Ajusta o espaço entre a imagem e o texto empilhados */
+        gap: 50px; 
     }
 
     .features-text {
-        max-width: 100%; /* Libera o limite de largura */
-        text-align: center; /* Centraliza os textos (título e subtítulo) */
-        align-items: center; /* Centraliza a lista dentro do contêiner */
+        max-width: 100%; 
+        text-align: center; 
+        align-items: center; 
+    }
+
+    .features-title {
+        white-space: normal;
     }
 
     .features-list {
-        padding-left: 0; /* Remove o recuo para não ficar torto no celular */
-        align-items: center; /* Centraliza os itens da lista individualmente */
+        padding-left: 0; 
+        align-items: center; 
+    }
+
+    .features-list li {
+        white-space: normal;
+    }
+
+    .features-subtitle {
+        white-space: normal;
     }
 
     .features-image {
-        justify-content: center; /* Garante que o celular fique no meio da tela */
+        justify-content: center; 
     }
 
     .features-image img {
-        transform: translateY(0); /* Tira o deslocamento para baixo, deixando a margem limpa */
-        width: clamp(240px, 50vw, 320px); /* Ajusta o tamanho da imagem para ficar bonito no celular */
+        transform: translateY(0); 
+        width: clamp(240px, 50vw, 320px); 
     }
 }

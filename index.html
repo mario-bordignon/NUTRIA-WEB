@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="img/N-logo.svg" alt="Logo Nutria">
+                <a href="index.html">
+                     <img src="img/N-logo.svg" alt="Logo Nutria">
+                </a>
             </div>
             
             <ul class="nav-links">
@@ -37,13 +39,13 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <a href="downloads/teste.jpg" download="app-nutria-teste.jpg" class="btn-download">Baixe agora</a>
+                <button class="btn-download download-trigger">Baixe agora</button>
             </div>
         </div>
     </nav>
-<main class="main-content">
 
-<section class="hero">
+    <main class="main-content">
+        <section class="hero">
             <h1 class="hero-title">
                 Mantenha e compartilhe<br>uma alimentação saudável
             </h1>
@@ -51,13 +53,14 @@
                 Encontre uma comunidade e desenvolva<br>sua rotina com saúde e motivação
             </p>
             <div class="hero-actions">
-                <a href="downloads/teste.jpg" download="app-nutria-teste.jpg" class="hero-btn">Baixe agora (00 MB)</a>
+                <button class="hero-btn download-trigger">Baixe agora (00 MB)</button>
                 <p class="hero-terms">
                     Ao baixar, você concorda com nossos <a href="termos.pdf" target="_blank">termos e condições</a>
                 </p>
             </div>
         </section>
-<section class="features" id="sobre">
+
+        <section class="features" id="sobre">
             <div class="features-wrapper">
                 <div class="features-text">
                     <h2 class="features-title">
@@ -81,12 +84,13 @@
                 </div>
             </div>
         </section>
-<section class="black-banner">
+
+        <section class="black-banner">
             <h2 class="banner-title">
                 O aplicativo ideal para quem<br>busca novos começos.
             </h2>
         </section>
-</main>
+    </main>
 
     <button id="btnScrollTop" class="btn-scroll-top" aria-label="Voltar ao topo">
         <svg width="26" height="22" viewBox="0 0 24 24" fill="#D1D5DB" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +98,28 @@
         </svg>
     </button>
 
-<script src="script.js"></script>
+    <div id="qrModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeModal" class="btn-close-modal" aria-label="Fechar">&times;</button>
+            <h3 class="modal-title">Baixe no seu celular</h3>
+            <p class="modal-text">Escaneie o QR Code abaixo para iniciar o download do Nutria em seu celular.</p>
+            <div class="qr-placeholder">
+                <img src="img/qrcode.png" alt="QR Code para download do APK" id="qrImage">
+            </div>
+        </div>
+    </div>
 
+    <div id="qrModal" class="modal-overlay">
+        </div>
+
+    <div id="iosModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeIosModal" class="btn-close-modal" aria-label="Fechar">&times;</button>
+            <h3 class="modal-title">Sentimos Muito :(</h3>
+            <p class="modal-text">KKKKKKKKK não tem android KKKKKKK</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
