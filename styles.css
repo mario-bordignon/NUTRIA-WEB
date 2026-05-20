@@ -1,59 +1,63 @@
 /* #region CORPO E TIPOGRAFIA */
-@font-face {
-    font-family: 'Nourd';
-    src: url('fonts/nourd_regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap; 
-}
-
+@font-face { font-family: 'Nourd'; src: url('fonts/nourd_regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
 :root {
     --font-primary: 'Nourd', sans-serif;
     --color-brand-start: #FE6B05;
     --color-brand-end: #FE4A01;
     --gradient-primary: linear-gradient(135deg, var(--color-brand-start), var(--color-brand-end));
-    
-    /* NOVAS VARIÁVEIS - PLANOS */
     --color-purple-start: #9A05FE;
     --color-purple-end: #2701FE;
     --gradient-purple: linear-gradient(135deg, var(--color-purple-start), var(--color-purple-end));
     --color-card-border: rgba(128, 128, 128, 0.2);
-    /* ------------------------ */
-
-    /* Variáveis de Cores (Tema Claro Padrão) */
     --color-text: #1A1A1A;
-    --color-text-muted: #757575; 
+    --color-text-muted: #757575;
     --color-bg: #FFFFFF;
-    
-    --page-margin-sides: 18%; 
+    --page-margin-sides: 18%;
 }
 
-/* Substituição de Variáveis para o TEMA ESCURO */
-[data-theme="dark"] {
-    --color-text: #FFFFFF;
-    --color-text-muted: #FFFFFF;
-    --color-bg: #1A1A1A;
+[data-theme="dark"] { --color-text: #FFFFFF; --color-text-muted: #FFFFFF; --color-bg: #1A1A1A; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-primary); background-color: var(--color-bg); color: var(--color-text); margin: 0 var(--page-margin-sides); padding-top: 80px; }
+/* #endregion */
+
+/* #region TELA-5 (EQUIPE) */
+.team { margin-top: 120px; text-align: center; width: 100%; position: relative; }
+.team-title { font-size: 2.6rem; margin-bottom: 60px; color: var(--color-text); }
+
+.carousel-wrapper { position: relative; width: 100%; max-width: 800px; margin: 0 auto; }
+.carousel-viewport { overflow: hidden; width: 100%; }
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+.team-member { width: 240px; height: 240px; border-radius: 24px; overflow: hidden; background: rgba(128,128,128,0.1); }
+.team-photo { width: 100%; height: 100%; object-fit: cover; }
 
-html {
-    overflow-x: hidden;
-    transition: background-color 0.3s ease; 
-}
+/* Desktop: Esconde botões */
+.carousel-btn { display: none; }
 
-body {
-    font-family: var(--font-primary);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    margin: 0 var(--page-margin-sides); 
-    padding-top: 80px; 
-    padding-bottom: 200vh; 
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* Mobile: Carrossel */
+@media (max-width: 992px) {
+    .carousel-viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .team-container { 
+        display: flex; 
+        flex-wrap: nowrap; 
+        width: max-content; 
+        padding: 0 calc(50% - 120px); 
+    }
+    .team-member { flex: 0 0 240px; scroll-snap-align: center; }
+    .carousel-btn { 
+        display: flex; position: absolute; top: 50%; transform: translateY(-50%); 
+        z-index: 10; background: var(--color-bg); border-radius: 50%; width: 40px; height: 40px; cursor: pointer;
+    }
+    .carousel-btn.prev { left: 0; }
+    .carousel-btn.next { right: 0; }
 }
 /* #endregion */
 
@@ -396,13 +400,29 @@ body {
     color: var(--color-text);
 }
 
+/* Container de segurança para os botões */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* No desktop, a janela apenas repassa a largura normal */
+.carousel-viewport {
+    width: 100%;
+    overflow: visible; 
+}
+
+/* Os botões de seta não existem no PC */
+.carousel-btn {
+    display: none; 
+}
+
 .plans-container {
     display: grid;
-    /* Grid automático que quebra para baixo em telas pequenas */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     width: 100%;
-    max-width: 900px;
 }
 
 .plan-card {
@@ -414,7 +434,65 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* --- MÁGICA DO CARROSSEL NO MOBILE --- */
+@media (max-width: 992px) {
+    .carousel-viewport {
+        overflow-x: auto;
+        /* Habilita o "imã" nativo do navegador */
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Esconde a barra feia no Firefox */
+        padding-bottom: 30px; /* Impede que a sombra seja cortada */
+    }
+    
+    .carousel-viewport::-webkit-scrollbar {
+        display: none; /* Esconde a barra feia no Chrome/Safari */
+    }
+
+    .plans-container {
+        display: flex; /* Muda de Grid para Linha */
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .plan-card {
+        /* No mobile, cada cartão ocupa 85% da tela. Isso faz o próximo cartão "espiar" no canto, indicando que é um carrossel! */
+        flex: 0 0 85%; 
+        scroll-snap-align: center; /* O cartão é puxado como um ímã para o centro */
+    }
+
+    /* Estilização dos Botões de Seta Flutuantes */
+    .carousel-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: calc(50% - 15px); /* Desconta o padding-bottom */
+        transform: translateY(-50%);
+        width: 46px;
+        height: 46px;
+        background-color: var(--color-bg);
+        border: 2px solid var(--color-card-border);
+        border-radius: 50%;
+        color: var(--color-text);
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    [data-theme="dark"] .carousel-btn {
+        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .carousel-btn:active {
+        transform: translateY(-50%) scale(0.9); /* Efeito de apertar o botão */
+    }
+
+    .carousel-btn.prev { left: -10px; }
+    .carousel-btn.next { right: -10px; }
 }
 
 .plan-card:hover {
@@ -424,19 +502,6 @@ body {
 
 [data-theme="dark"] .plan-card:hover {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
-
-/* Lógica do Contorno Roxo Dinâmico */
-.plan-card.premium {
-    position: relative;
-    /* Faz o fundo respeitar o tema, mas a borda assumir o degradê roxo */
-    background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
-                var(--gradient-purple) border-box;
-    border: 2px solid transparent;
-}
-
-.plan-card.premium:hover {
-    box-shadow: 0 15px 35px rgba(154, 5, 254, 0.15);
 }
 
 .plan-icon {
@@ -450,25 +515,130 @@ body {
     color: var(--color-text);
 }
 
-/* Deixa o ícone do plano empresarial combinando com a borda */
-.plan-card.premium .plan-icon {
-    background: rgba(154, 5, 254, 0.1);
-    color: var(--color-purple-start);
-}
-
 .plan-name {
     font-size: 1.6rem;
     font-weight: bold;
     color: var(--color-text);
 }
 
-.plan-desc {
+/* --- Lógica do Contorno Dinâmico --- */
+
+/* 2º Premium: Borda e Ícone Laranja */
+.plan-card.premium {
+    position: relative;
+    background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+                var(--gradient-primary) border-box; /* Puxa o laranja padrão */
+    border: 2px solid transparent;
+}
+
+.plan-card.premium:hover {
+    box-shadow: 0 15px 35px rgba(254, 107, 5, 0.15); /* Sombra laranja */
+}
+
+.plan-card.premium .plan-icon {
+    background: rgba(254, 107, 5, 0.1);
+    color: var(--color-brand-start);
+}
+
+/* 3º Business: Borda, Ícone e Checkmarks Roxos */
+.plan-card.business {
+    position: relative;
+    background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+                var(--gradient-purple) border-box; /* Puxa o novo roxo */
+    border: 2px solid transparent;
+}
+
+.plan-card.business:hover {
+    box-shadow: 0 15px 35px rgba(154, 5, 254, 0.15); /* Sombra roxa */
+}
+
+.plan-card.business .plan-icon {
+    background: rgba(154, 5, 254, 0.1);
+    color: var(--color-purple-start);
+}
+
+.plan-card.business .check-icon {
+    color: var(--color-purple-start);
+}
+
+/* --- Listas e Ícones --- */
+.plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
     font-size: 1.05rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: 1.4;
+    white-space: nowrap; /* <-- Mágica 1: Impede as quebras de linha e mantém o tamanho */
+}
+
+.check-icon {
+    flex-shrink: 0;
+    color: var(--color-brand-start); /* Cor laranja padrão */
+    transform: translateY(2px);
+}
+
+.cross-icon {
+    flex-shrink: 0;
+    color: var(--color-text-muted); /* Cor cinza para o X */
+    transform: translateY(2px);
+}
+
+/* Regra para Rabanar (Taxar) o Texto */
+.disabled-feature {
+    text-decoration: line-through;
+    opacity: 0.6;
 }
 /* #endregion */
 
+/* #region TELA-5 (EQUIPE) */
+.team { margin-top: 120px; text-align: center; width: 100%; position: relative; }
+.team-title { font-size: 2.6rem; margin-bottom: 60px; color: var(--color-text); }
+
+/* Container */
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(3, 240px); /* 3 colunas de 240px */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.team-member {
+    width: 240px;
+    height: 240px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+.team-photo { width: 100%; height: 100%; object-fit: cover; }
+
+/* Mobile: Transforma em Carrossel */
+@media (max-width: 992px) {
+    .team-container {
+        display: flex; /* Flexbox para carrossel */
+        grid-template-columns: none; /* Desativa grid */
+        width: max-content; /* O container ocupa a soma de todos os membros */
+        padding: 20px calc(50% - 120px); /* Centraliza o membro ativo */
+        gap: 20px;
+    }
+    
+    .team-member { flex: 0 0 240px; scroll-snap-align: center; }
+    
+    .carousel-btn { display: flex; } /* Mostra botões no mobile */
+}
+/* #endregion */
 
 
 
@@ -613,42 +783,82 @@ body {
 /* #endregion */
 
 /* Responsividade da Seção Features (Tablets e Celulares) */
+/* --- MÁGICA DO CARROSSEL NO MOBILE --- */
 @media (max-width: 992px) {
-    .features-wrapper {
-        flex-direction: column-reverse; 
+    .carousel-wrapper {
+        margin-top: -60px;
+        margin-bottom: -60px;
+    }
+
+    .carousel-viewport {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; 
+    }
+    
+    .carousel-viewport::-webkit-scrollbar { display: none; }
+
+    .plans-container {
+        display: flex; 
+        gap: 20px;
+        padding: 60px calc(50% - 160px);
+    }
+
+    .plan-card {
+        flex: 0 0 320px; 
+        max-width: 85vw; 
+        scroll-snap-align: center; 
+    }
+
+    .carousel-btn {
+        display: flex;
+        align-items: center;
         justify-content: center;
-        gap: 50px; 
+        position: absolute;
+        top: 50%; 
+        transform: translateY(-50%);
+        width: 46px;
+        height: 46px;
+        background-color: var(--color-bg);
+        border: 2px solid var(--color-card-border);
+        border-radius: 50%;
+        color: var(--color-text);
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .features-text {
-        max-width: 100%; 
-        text-align: center; 
-        align-items: center; 
+    .carousel-btn.prev { left: -10px; }
+    .carousel-btn.next { right: -10px; }
+
+    /* Regras do Carrossel da Equipe no Mobile */
+    .team-container {
+        display: flex; 
+        flex-wrap: nowrap; 
+        gap: 20px;
+        padding: 60px calc(50% - 130px);
+        width: max-content; 
     }
 
-    .features-title {
-        white-space: normal;
+    .team-member {
+        flex: 0 0 240px;
+        scroll-snap-align: center;
     }
+} /* <--- FECHAMENTO CORRETO DO MEDIA QUERY MOBILE */
 
-    .features-list {
-        padding-left: 0; 
-        align-items: center; 
+/* ESTILO DESKTOP (Fora do Media Query Mobile) */
+@media (min-width: 993px) {
+    .team-container {
+        display: grid;
+        grid-template-columns: repeat(3, 240px);
+        justify-content: center; /* Centraliza as colunas */
+        place-content: center;   /* Centraliza a última linha de 2 itens */
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0;
     }
-
-    .features-list li {
-        white-space: normal;
-    }
-
-    .features-subtitle {
-        white-space: normal;
-    }
-
-    .features-image {
-        justify-content: center; 
-    }
-
-    .features-image img {
-        transform: translateY(0); 
-        width: clamp(240px, 50vw, 320px); 
-    }
+    
+    /* Oculta os botões no desktop */
+    .team .carousel-btn { display: none; }
 }
