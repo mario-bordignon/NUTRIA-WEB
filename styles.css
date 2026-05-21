@@ -638,6 +638,20 @@ body { font-family: var(--font-primary); background-color: var(--color-bg); colo
     
     .carousel-btn { display: flex; } /* Mostra botões no mobile */
 }
+
+/* Ajuste para o logo no espaço vazio da equipe */
+.logo-filler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary); /* Usa a cor de fundo do tema */
+}
+
+.filler-img {
+    width: 60%; /* Impede que o logo encoste nas bordas */
+    height: auto;
+    object-fit: contain;
+}
 /* #endregion */
 
 
