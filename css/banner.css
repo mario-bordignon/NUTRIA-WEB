@@ -1,0 +1,21 @@
+/* =========================================
+   BANNER PRETO (TEXTO DE DESTAQUE)
+========================================= */
+.black-banner {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.banner-title {
+    font-size: clamp(2rem, 4vw, 3.2rem); 
+    font-weight: bold;
+    line-height: 1.3;
+}

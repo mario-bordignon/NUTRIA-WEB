@@ -1,0 +1,42 @@
+/* =========================================
+   COMPONENTES E MODAIS
+========================================= */
+
+/* Botão Scroll Top */
+.btn-scroll-top {
+    position: fixed; bottom: 40px; right: 40px; width: 56px; height: 56px;
+    background-color: var(--color-bg); border: none; border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); display: flex; justify-content: center; align-items: center;
+    cursor: pointer; z-index: 999; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease;
+}
+[data-theme="dark"] .btn-scroll-top { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); }
+.btn-scroll-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.btn-scroll-top:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3); }
+
+/* Modais Base */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px);
+    display: flex; justify-content: center; align-items: center; z-index: 2000;
+    opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; 
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+
+.modal-content {
+    background-color: var(--color-bg); padding: 40px 30px; border-radius: 12px;
+    max-width: 400px; width: 90%; text-align: center; position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transform: translateY(20px); transition: transform 0.3s ease; 
+}
+.modal-overlay.active .modal-content { transform: translateY(0); }
+
+/* Modal Botões e Textos */
+.btn-close-modal {
+    position: absolute; top: 15px; right: 20px; background: transparent; border: none;
+    font-size: 1.8rem; color: var(--color-text-muted); cursor: pointer; transition: color 0.2s ease;
+}
+.btn-close-modal:hover { color: var(--color-brand-start); }
+
+.modal-title { font-size: 1.6rem; margin-bottom: 12px; color: var(--color-text); }
+.modal-text { font-size: 1rem; color: var(--color-text-muted); margin-bottom: 24px; line-height: 1.4; }
+
+.qr-placeholder img { max-width: 200px; height: auto; border-radius: 8px; border: 2px solid rgba(128, 128, 128, 0.1); }

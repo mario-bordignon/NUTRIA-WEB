@@ -1,0 +1,15 @@
+/* =========================================
+   SEÇÃO HERO (INTRODUÇÃO)
+========================================= */
+.hero { display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: clamp(100px, 15vh, 160px); gap: 24px; }
+.hero-title { font-size: clamp(2.8rem, 5.2vw, 5.8rem); font-weight: normal; letter-spacing: -0.5px; line-height: 1.15; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; width: 100%; }
+.hero-subtitle { font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--color-text-muted); font-weight: 400; line-height: 1.5; }
+
+.hero-actions { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.hero-btn { background: var(--gradient-primary); color: #FFFFFF; border: none; font-family: inherit; cursor: pointer; padding: 1rem 2.2rem; border-radius: 6px; font-weight: bold; font-size: clamp(1rem, 1.5vw, 1.15rem); box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.15); transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; }
+[data-theme="dark"] .hero-btn { box-shadow: 0 6px 15px -5px rgba(0, 0, 0, 0.5); }
+.hero-btn:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.2); }
+
+.hero-terms { font-size: 0.9rem; color: var(--color-text-muted); }
+.hero-terms a { color: var(--color-brand-start); font-weight: 600; text-decoration: underline; transition: opacity 0.2s ease; }
+.hero-terms a:hover { opacity: 0.8; }

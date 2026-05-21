@@ -1,0 +1,24 @@
+/* =========================================
+   SEÇÃO DA EQUIPE
+========================================= */
+.team { margin-top: 120px; text-align: center; width: 100%; position: relative; display: flex; flex-direction: column; align-items: center; }
+.team-title { font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: bold; margin-bottom: 60px; color: var(--color-text); }
+
+.team-container { display: grid; grid-template-columns: repeat(3, 240px); justify-content: center; gap: 30px; max-width: 800px; margin: 0 auto; }
+.team-member { width: 240px; height: 240px; border-radius: 24px; overflow: hidden; background-color: rgba(128, 128, 128, 0.1); border: none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.team-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.logo-filler { display: flex; align-items: center; justify-content: center; background-color: var(--color-bg-secondary); }
+.filler-img { width: 60%; height: auto; object-fit: contain; }
+
+/* Desktop Grid Force */
+@media (min-width: 993px) {
+    .team-container { display: grid; grid-template-columns: repeat(3, 240px); justify-content: center; place-content: center; width: 100%; max-width: 800px; margin: 0 auto; padding: 0; }
+    .team .carousel-btn { display: none; }
+}
+
+/* Equipe - Responsivo (Carrossel) */
+@media (max-width: 992px) {
+    .team-container { display: flex; flex-wrap: nowrap; gap: 20px; padding: 60px calc(50% - 130px); width: max-content; }
+    .team-member { flex: 0 0 240px; scroll-snap-align: center; }
+}

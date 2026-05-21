@@ -1,0 +1,24 @@
+/* =========================================
+   MECÂNICA GLOBAL DE CARROSSEL 
+========================================= */
+.carousel-wrapper { position: relative; width: 100%; max-width: 1100px; margin: 0 auto; }
+.carousel-viewport { width: 100%; overflow: visible; }
+.carousel-btn { display: none; } /* Botões invisíveis no PC por padrão */
+
+@media (max-width: 992px) {
+    .carousel-wrapper { margin-top: -60px; margin-bottom: -60px; }
+    .carousel-viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 30px; }
+    .carousel-viewport::-webkit-scrollbar { display: none; }
+    
+    .carousel-btn {
+        display: flex; align-items: center; justify-content: center; position: absolute;
+        top: calc(50% - 15px); transform: translateY(-50%); width: 46px; height: 46px;
+        background-color: var(--color-bg); border: 2px solid var(--color-card-border);
+        border-radius: 50%; color: var(--color-text); cursor: pointer; z-index: 10;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    [data-theme="dark"] .carousel-btn { box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
+    .carousel-btn:active { transform: translateY(-50%) scale(0.9); }
+    .carousel-btn.prev { left: -10px; }
+    .carousel-btn.next { right: -10px; }
+}
