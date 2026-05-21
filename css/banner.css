@@ -1,6 +1,7 @@
 /* =========================================
-   BANNER PRETO (TEXTO DE DESTAQUE)
+    BANNER PRETO (TEXTO DE DESTAQUE)
 ========================================= */
+
 .black-banner {
     width: 100vw;
     margin-left: calc(-50vw + 50%);

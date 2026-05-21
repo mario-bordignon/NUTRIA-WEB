@@ -1,6 +1,7 @@
 /* =========================================
-   SEÇÃO DE FUNCIONALIDADES
+    SEÇÃO DE FUNCIONALIDADES
 ========================================= */
+
 .features { margin-top: 70px; display: flex; justify-content: center; align-items: center; width: 100%; }
 .features-wrapper { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: none; gap: 40px; }
 .features-text { display: flex; flex-direction: column; gap: 28px; text-align: left; max-width: 750px; width: 100%; }

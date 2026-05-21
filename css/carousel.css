@@ -1,6 +1,7 @@
 /* =========================================
-   MECÂNICA GLOBAL DE CARROSSEL 
+    MECÂNICA GLOBAL DE CARROSSEL 
 ========================================= */
+
 .carousel-wrapper { position: relative; width: 100%; max-width: 1100px; margin: 0 auto; }
 .carousel-viewport { width: 100%; overflow: visible; }
 .carousel-btn { display: none; } /* Botões invisíveis no PC por padrão */
