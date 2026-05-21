@@ -1,0 +1,46 @@
+---
+const { nomeDoPlano, classeDestaque = "" } = Astro.props;
+---
+
+<div class={`plan-card ${classeDestaque}`}>
+    <div class="plan-icon">
+        <slot name="icone" />
+    </div>
+    <h3 class="plan-name">{nomeDoPlano}</h3>
+    <ul class="plan-features">
+        <slot name="features" />
+    </ul>
+</div>
+
+<style is:global>
+    /* Visual do Cartão */
+    .plan-card { background-color: var(--color-bg); border: 2px solid var(--color-card-border); border-radius: 16px; padding: 40px 30px; text-align: left; display: flex; flex-direction: column; gap: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
+    .plan-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); }
+    [data-theme="dark"] .plan-card:hover { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); }
+
+    .plan-icon { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background-color: rgba(128, 128, 128, 0.08); border-radius: 12px; color: var(--color-text); }
+    .plan-name { font-size: 1.6rem; font-weight: bold; color: var(--color-text); }
+
+    /* Variação Premium */
+    .plan-card.premium { position: relative; background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box, var(--gradient-primary) border-box; border: 2px solid transparent; }
+    .plan-card.premium:hover { box-shadow: 0 15px 35px rgba(254, 107, 5, 0.15); }
+    .plan-card.premium .plan-icon { background: rgba(254, 107, 5, 0.1); color: var(--color-brand-start); }
+
+    /* Variação Business */
+    .plan-card.business { position: relative; background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box, var(--gradient-purple) border-box; border: 2px solid transparent; }
+    .plan-card.business:hover { box-shadow: 0 15px 35px rgba(154, 5, 254, 0.15); }
+    .plan-card.business .plan-icon { background: rgba(154, 5, 254, 0.1); color: var(--color-purple-start); }
+    .plan-card.business .check-icon { color: var(--color-purple-start); }
+
+    /* Lista de Vantagens (Injetada via Slot) */
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 10px; padding: 0; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.4; white-space: nowrap; }
+    .check-icon { flex-shrink: 0; color: var(--color-brand-start); transform: translateY(2px); }
+    .cross-icon { flex-shrink: 0; color: var(--color-text-muted); transform: translateY(2px); }
+    .disabled-feature { text-decoration: line-through; opacity: 0.6; }
+
+    /* Responsividade do Cartão isolado */
+    @media (max-width: 992px) {
+        .plan-card { flex: 0 0 320px; max-width: 85vw; scroll-snap-align: center; }
+    }
+</style>
