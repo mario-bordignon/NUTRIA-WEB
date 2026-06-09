@@ -1,5 +1,5 @@
 /* =========================================
-   SEÇÃO DA EQUIPE
+    SEÇÃO DA EQUIPE
 ========================================= */
 
 .team { 
@@ -26,7 +26,7 @@
     justify-content: center; 
     gap: 30px; 
     width: 100%; 
-    max-width: 800px; /* Trava matemática: (240px * 3) + (30px * 2) = 780px. O 800px segura exatos 3 cartões */
+    max-width: 800px; 
     margin: 0 auto; 
 }
 
@@ -37,7 +37,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 16px; /* Respiro entre a foto e o texto */
+    gap: 16px; 
 }
 
 /* A caixa redonda (antigo .team-member) */
@@ -48,13 +48,11 @@
     overflow: hidden; 
     background-color: rgba(128, 128, 128, 0.1); 
     border: none; 
+    /* Mantém a transição suave apenas para transições de tema, se houver */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.team-photo:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
-}
+/* O HOVER DO PC FOI DELETADO DAQUI */
 
 /* A imagem dentro da caixa */
 .team-photo img { 
@@ -84,9 +82,12 @@
     margin: 0;
 }
 
-/* Responsivo para celulares (Permite que as imagens empilhem uma a uma, centralizadas) */
+/* =========================================
+   EQUIPE - AJUSTES PARA CELULAR (MOBILE)
+========================================= */
 @media (max-width: 768px) {
-    .team-container { 
-        gap: 20px; 
+    .team-photo {
+        /* Desativa cliques, links ou touch no celular */
+        pointer-events: none !important; 
     }
 }

@@ -1,0 +1,51 @@
+/* =========================================
+   RODAPÉ (FORÇADO LARGURA TOTAL - FULL BLEED)
+========================================= */
+
+.footer-banner {
+    background-color: #000000; /* Preto puro */
+    
+    /* A MÁGICA ATUALIZADA: Centraliza pelo eixo e expande 100% da tela */
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    margin-top: 120px; 
+    padding: 40px 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* =========================================
+   RODAPÉ - AJUSTES MOBILE
+========================================= */
+@media (max-width: 768px) {
+    .footer-banner {
+        margin-top: 60px; 
+        padding: 30px 0; 
+    }
+
+    .footer-text {
+        font-size: 0.9rem;
+    }
+}

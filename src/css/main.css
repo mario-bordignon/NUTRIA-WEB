@@ -2,6 +2,36 @@
     BASE, VARIÁVEIS E TIPOGRAFIA
 ========================================= */
 
+/* 1. Deslize suave no site todo (se já tiver, não precisa repetir) */
+html {
+    scroll-behavior: smooth; 
+}
+
+/* 2. Parada específica para a seção de Funções */
+#funcoes {
+    scroll-margin-top: 100px; /* Altere este valor para mais ou menos distância */
+}
+
+/* 3. Parada específica para a seção de Planos */
+#planos {
+    scroll-margin-top: 190px; /* Exemplo: uma parada mais distante */
+}
+
+/* 4. Parada específica para a seção da Equipe */
+#equipe {
+    scroll-margin-top: 100px; /* Exemplo: uma parada mais próxima */
+}
+
+/* Define a parada específica para os planos */
+.plans {
+    scroll-margin-top: 120px; 
+}
+
+/* Define uma parada diferente para a equipe */
+.team {
+    scroll-margin-top: 80px; 
+}
+
 @font-face { 
     font-family: 'Nourd'; 
     src: url('/fonts/nourd_regular.ttf') format('truetype'); 

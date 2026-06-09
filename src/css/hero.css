@@ -14,3 +14,16 @@
 .hero-terms { font-size: 0.9rem; color: var(--color-text-muted); }
 .hero-terms a { color: var(--color-brand-start); font-weight: 600; text-decoration: underline; transition: opacity 0.2s ease; }
 .hero-terms a:hover { opacity: 0.8; }
+
+/* =========================================
+   HERO - AJUSTES MOBILE (ATÉ 768px)
+========================================= */
+@media (max-width: 768px) {
+    .hero {
+        /* Reduz o empurrão do topo no celular para o conteúdo subir */
+        margin-top: 30px !important; 
+        
+        /* Opcional: diminui um pouco o espaço entre o título, botão e subtítulo */
+        gap: 16px !important; 
+    }
+}

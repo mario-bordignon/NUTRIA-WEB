@@ -16,3 +16,69 @@
 
 .features-image { display: flex; justify-content: flex-end; flex-shrink: 0; }
 .features-image img { max-width: 100%; height: auto; width: clamp(280px, 35vw, 420px); transform: translateY(30px); }
+
+/* =========================================
+   FEATURES - AJUSTES MOBILE
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Inverte a ordem: Imagem em cima, textos embaixo */
+    .features-wrapper {
+        flex-direction: column-reverse;
+        gap: 30px; 
+    }
+
+    /* 2. Centraliza o bloco de textos */
+    .features-text {
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    /* 3. Título Principal: Centralizado e sem cortar */
+    .features-title {
+        white-space: normal; /* Remove a trava que cortava o texto */
+        text-align: center;
+        font-size: clamp(1.8rem, 6vw, 2.2rem); /* Fonte um pouco menor pro celular */
+    }
+
+    /* 4. Tópicos (Lista): Empilhados e centralizados SEM bolinhas */
+   /* 4. Tópicos (Lista): Centralizados com o caractere "•" injetado */
+    .features-list {
+        align-items: center; 
+        padding-left: 0; 
+    }
+    
+    .features-list li {
+        white-space: normal; 
+        text-align: center; 
+        padding-left: 0; /* Remove o espaço fantasma do desktop */
+    }
+
+    /* A mágica do texto injetado */
+    .features-list li::before {
+        content: "• "; /* Injeta o seu Alt+7 com um espaço depois! */
+        position: static; /* Cancela o posicionamento flutuante do Desktop */
+        background: transparent; /* Remove o quadrado/círculo desenhado */
+        width: auto;
+        height: auto;
+        transform: none; /* Cancela a matemática que desajustava a altura */
+        color: var(--color-text-muted); /* Mantém a cor do texto */
+    }
+
+    /* 5. Texto Laranja de baixo: Centralizado e sem cortar */
+    .features-subtitle {
+        white-space: normal; /* Remove a trava de corte */
+        text-align: center;
+    }
+
+    /* 6. Imagem: Posicionada no topo e tamanho ajustado */
+    .features-image {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .features-image img {
+        transform: translateY(0); /* Remove o empurrão pra baixo que estava no Desktop */
+        width: clamp(220px, 60vw, 300px); /* Garante que caiba bem na tela */
+    }
+}

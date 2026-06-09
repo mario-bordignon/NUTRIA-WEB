@@ -39,27 +39,40 @@
 .btn-download { background: var(--gradient-primary); color: #FFFFFF; border: none; font-family: inherit; cursor: pointer; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: bold; font-size: 0.95rem; white-space: nowrap; transition: opacity 0.3s ease, transform 0.2s ease; }
 .btn-download:hover { opacity: 0.9; transform: translateY(-1px); }
 
+/* =========================================
+   NAVBAR MOBILE (LOGO CENTRO + TEMA DIREITA)
+========================================= */
 @media (max-width: 768px) {
-    /* Centraliza o contêiner principal da navbar */
-    .navbar {
-        display: flex;
-        justify-content: center !important; /* Força o alinhamento ao centro */
-        align-items: center;
-        padding: 15px 0; /* Remove os paddings laterais que podem descer a logo */
-        width: 100%;
+    /* 1. Ativa a base relativa para podermos fixar o botão na ponta */
+    .nav-container {
+        display: flex !important;
+        justify-content: center !important; /* Mantém a logo no centro */
+        position: relative;
+        padding: 0 20px !important; /* Espaço de segurança nas bordas do celular */
     }
 
-    /* Esconde absolutamente todo o resto (links, botões, menu hambúrguer) */
-    .nav-links, 
-    .nav-buttons, 
-    .menu-toggle, 
-    .hamburger {
+    /* 2. Mantém os links de texto escondidos */
+    .nav-links {
         display: none !important;
     }
 
-    /* Garante que a logo fique no tamanho ideal */
-    .navbar-logo {
-        margin: 0;
-        padding: 0;
+    /* 3. Traz o bloco de ações de volta, mas o força a flutuar na direita */
+    .nav-actions {
+        display: flex !important; 
+        position: absolute;
+        right: 20px; /* Cola o botão na extrema direita */
+        top: 50%;
+        transform: translateY(-50%); /* Centraliza o botão verticalmente na barra */
+    }
+
+    /* Esconde apenas o botão de download, deixando o de tema visível */
+    .btn-download {
+        display: none !important; 
+    }
+
+    /* 4. Garante que a caixa da logo não tenha margens antigas incomodando */
+    .logo {
+        margin: 0 !important;
+        padding: 0 !important;
     }
 }

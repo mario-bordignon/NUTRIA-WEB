@@ -11,6 +11,8 @@ import '../css/carousel.css';
 import '../css/plans.css';
 import '../css/team.css';
 import '../css/components.css';
+import '../css/footer.css';
+
 ---
 
 <!--
@@ -41,7 +43,7 @@ import '../css/components.css';
         <div class="nav-container">
             
             <div class="logo">
-                <a href="index.html">
+                <a href="https://mario-bordignon.github.io/NUTRIA-WEB/">
                      <img src="/NUTRIA-WEB/img/N-logo.svg" alt="Logo Nutria">
                 </a>
             </div>
@@ -50,7 +52,6 @@ import '../css/components.css';
                 <li><a href="#funcoes">Funções</a></li>
                 <li><a href="#planos">Planos</a></li>
                 <li><a href="#equipe">Equipe</a></li>
-                <li><a href="#sobre">Sobre</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -115,7 +116,7 @@ import '../css/components.css';
 ============================================
 --> 
 <!--#region-->
-        <section class="features" id="sobre">
+        <section class="features" id="funcoes">
             <div class="features-wrapper">
                 <div class="features-text">
                     <h2 class="features-title">
@@ -167,7 +168,9 @@ import '../css/components.css';
 =====================================
 -->
 <!--#region-->
-    <div class="plans-container">
+<h2 class="plans-title">Nossos futuros planos</h2>    
+
+<div class="plans-container" id="planos">
                     
     <CardPlanos nomeDoPlano="Básico">
         <div slot="icone">
@@ -196,7 +199,7 @@ import '../css/components.css';
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
         </div>
         <div slot="features">
-            <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Mesmas vantagens do Premium</li>
+            <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Vantagens do Premium</li>
             <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Melhores valores</li>
             <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Grupos empresariais</li>
         </div>
@@ -222,12 +225,12 @@ import '../css/components.css';
     <h2 class="team-title">Nossa Equipe</h2>
 
     <div class="team-container">
-        <CardEquipe nome="Matheus" cargo="Especialista" foto="/NUTRIA-WEB/img/matheus.png" />
-        <CardEquipe nome="Diego" cargo="Especialista" foto="/NUTRIA-WEB/img/diego.png" />
-        <CardEquipe nome="Dominique" cargo="Especialista" foto="/NUTRIA-WEB/img/dominique.png" />
+        <CardEquipe nome="Matheus" cargo="Líder | Desenvolvedor" foto="/NUTRIA-WEB/img/matheus.png" />
+        <CardEquipe nome="Diego" cargo="Desenvolvedor" foto="/NUTRIA-WEB/img/diego.png" />
+        <CardEquipe nome="Dominique" cargo="Assistente de projeto" foto="/NUTRIA-WEB/img/dominique.png" />
         
-        <CardEquipe nome="Mario" cargo="Especialista" foto="/NUTRIA-WEB/img/mario.png" />
-        <CardEquipe nome="Chantal" cargo="Especialista" foto="/NUTRIA-WEB/img/chantal.png" />
+        <CardEquipe nome="Mario" cargo="Designer" foto="/NUTRIA-WEB/img/mario.png" />
+        <CardEquipe nome="Chantal" cargo="Assistente de projeto" foto="/NUTRIA-WEB/img/chantal.png" />
     </div>
 </section>
 <!--#endregion-->
@@ -269,6 +272,19 @@ import '../css/components.css';
 <!--#endregion-->
 
 
+<!--
+=================================================
+   RODAPÉ (rodapé)
+=================================================
+-->
+<!--#region-->
+
+<footer class="footer-banner">
+    <div class="footer-container">
+        <p class="footer-text">© 2026 Nutria. Todos os direitos reservados.</p>
+    </div>
+</footer>
+<!--#endregion-->
 
 
 
