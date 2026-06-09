@@ -37,6 +37,7 @@
 }
 
 html {
+    /* A trava principal já estava aqui, ótimo! */
     overflow-x: hidden;
     transition: background-color 0.3s ease; 
 }
@@ -45,7 +46,19 @@ body {
     font-family: var(--font-primary); 
     background-color: var(--color-bg); 
     color: var(--color-text); 
-    margin: 0 var(--page-margin-sides); 
-    padding-top: 80px; 
+    
+    /* Removemos a margin e juntamos os respiros laterais com os 80px do topo no padding */
+    margin: 0;
+    padding: 80px var(--page-margin-sides) 0; 
+    
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; 
+}
+
+/* O ajuste do Mobile que fizemos antes, agora usando padding */
+@media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 80px 15px 0; 
+    }
 }

@@ -1,10 +1,15 @@
 /* =========================================
-    BANNER PRETO (TEXTO DE DESTAQUE)
+   BANNER PRETO (TEXTO DE DESTAQUE)
 ========================================= */
 
 .black-banner {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    /* 1. Força a largura a ser a da tela do dispositivo */
+    width: 100vw; 
+    
+    /* 2. O cálculo perfeito: vai para o meio do <main> (50%) e puxa de volta metade da tela (-50vw) */
+    margin-left: calc(50% - 50vw); 
+    margin-right: calc(50% - 50vw);
+    
     background-color: #000000;
     color: #FFFFFF;
     padding: 120px 20px;
@@ -19,4 +24,15 @@
     font-size: clamp(2rem, 4vw, 3.2rem); 
     font-weight: bold;
     line-height: 1.3;
+}
+
+/* =========================================
+   Ajuste Mobile (Acompanhando o body de 15px)
+========================================= */
+@media (max-width: 768px) {
+    .black-banner {
+        /* No mobile, essa matemática também funciona sem precisar de ajustes! */
+        margin-left: calc(50% - 50vw); 
+        margin-right: calc(50% - 50vw);
+    }
 }

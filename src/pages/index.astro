@@ -1,5 +1,6 @@
 ---
 import CardPlanos from '../components/CardPlanos.astro';
+import CardEquipe from '../components/CardEquipe.astro';
 
 import '../css/main.css';
 import '../css/navbar.css';
@@ -25,7 +26,7 @@ import '../css/components.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutria</title>
 
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/NUTRIA-WEB/img/favicon.svg">
 </head>
 <!--#endregion-->
 
@@ -41,7 +42,7 @@ import '../css/components.css';
             
             <div class="logo">
                 <a href="index.html">
-                     <img src="img/N-logo.svg" alt="Logo Nutria">
+                     <img src="/NUTRIA-WEB/img/N-logo.svg" alt="Logo Nutria">
                 </a>
             </div>
             
@@ -131,7 +132,7 @@ import '../css/components.css';
                     </h3>
                 </div>
                 <div class="features-image">
-                    <img src="img/celular.svg" alt="Aplicativo Nutria no Celular">
+                    <img src="/NUTRIA-WEB/img/celular.svg" alt="Aplicativo Nutria no Celular">
                 </div>
             </div>
         </section>
@@ -195,7 +196,7 @@ import '../css/components.css';
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
         </div>
         <div slot="features">
-            <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Mesmas vantagens Premium</li>
+            <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Mesmas vantagens do Premium</li>
             <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Melhores valores</li>
             <li><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Grupos empresariais</li>
         </div>
@@ -211,40 +212,24 @@ import '../css/components.css';
 
 
 
-
-
 <!--
 =====================================
    NOSSA EQUIPE (fotos + carrossel)
 =====================================
 -->
 <!--#region-->
-    <section class="team" id="equipe">
-        <h2 class="team-title">Nossa Equipe</h2>
-        <div class="carousel-wrapper">
-            
-            <button class="carousel-btn prev" id="teamPrev" aria-label="Anterior">‹</button>
-            
-            <div class="carousel-viewport" id="teamViewport">
-                <div class="team-container">
-                    
-                    <div class="team-member"><img src="img/matheus.png" alt="Matheus" class="team-photo"></div>
-                    <div class="team-member"><img src="img/diego.png" alt="Diego" class="team-photo"></div>
-                    <div class="team-member"><img src="img/dominique.png" alt="Dominique" class="team-photo"></div>
-                    <div class="team-member"><img src="img/mario.png" alt="Mario" class="team-photo"></div>
-                    <div class="team-member"><img src="img/chantal.png" alt="Chantal" class="team-photo"></div>
-                
-                    <div class="team-member logo-filler">
-                        <img src="img/favicon.svg" class="team-photo filler-img" alt="Logo Nutria">
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <button class="carousel-btn next" id="teamNext" aria-label="Próximo">›</button>
-            
-        </div>
-    </section>
+<section class="team" id="equipe">
+    <h2 class="team-title">Nossa Equipe</h2>
+
+    <div class="team-container">
+        <CardEquipe nome="Matheus" cargo="Especialista" foto="/NUTRIA-WEB/img/matheus.png" />
+        <CardEquipe nome="Diego" cargo="Especialista" foto="/NUTRIA-WEB/img/diego.png" />
+        <CardEquipe nome="Dominique" cargo="Especialista" foto="/NUTRIA-WEB/img/dominique.png" />
+        
+        <CardEquipe nome="Mario" cargo="Especialista" foto="/NUTRIA-WEB/img/mario.png" />
+        <CardEquipe nome="Chantal" cargo="Especialista" foto="/NUTRIA-WEB/img/chantal.png" />
+    </div>
+</section>
 <!--#endregion-->
 
 
@@ -269,7 +254,7 @@ import '../css/components.css';
             <h3 class="modal-title">Baixe no seu celular</h3>
             <p class="modal-text">Escaneie o QR Code abaixo para iniciar o download do Nutria em seu celular.</p>
             <div class="qr-placeholder">
-                <img src="img/qrcode.png" alt="QR Code para download do APK" id="qrImage">
+                <img src="/NUTRIA-WEB/img/qrcode.png" alt="QR Code para download do APK" id="qrImage">
             </div>
         </div>
     </div>
@@ -297,7 +282,6 @@ import '../css/components.css';
     <script src="../js/scrollTop.js"></script>
     <script src="../js/downloadModals.js"></script>
     <script src="../js/carouselPlans.js"></script>
-    <script src="../js/carouselTeam.js"></script>
 <!--#endregion-->
 
 </body>

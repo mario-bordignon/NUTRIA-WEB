@@ -1,0 +1,17 @@
+---
+// Variáveis que o componente vai receber
+const { nome, cargo, foto, altTexto = "Foto do membro da equipe" } = Astro.props;
+---
+
+<div class="team-card">
+    <div class="team-photo">
+        <img src={foto} alt={altTexto} loading="lazy" />
+    </div>
+    
+    <div class="team-info">
+        <h3 class="team-name">{nome}</h3>
+        <p class="team-role">{cargo}</p>
+        
+        <slot /> 
+    </div>
+</div>
